@@ -36,7 +36,7 @@ const combineVolunteers = (
 
 const isVerified = (verified: string | boolean) => {
   if (typeof verified === "string") {
-    verified === "Yes" ? true : false;
+    return verified === "Yes";
   }
   return verified;
 };
@@ -63,7 +63,7 @@ const calculateHours = (volunteers: Volunteers[]) => {
   });
 };
 
-const byHours = (a, b) => {
+const compareByHours = (a, b) => {
   return b.hours - a.hours;
 };
 
@@ -73,4 +73,4 @@ const combinedVolunteers = combineVolunteers(
 
 const result = calculateHours(combinedVolunteers);
 
-console.log(result.sort(byHours));
+console.log(result.sort(compareByHours));
