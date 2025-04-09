@@ -34,6 +34,17 @@ const combineVolunteers = (
   });
 };
 
+const isVerified = (verified: string | boolean) => {
+  if (typeof verified === "string") {
+    verified === "Yes" ? true : false;
+  }
+  return verified;
+};
+
+const getHours = (activity: CombinedActivity) => {
+  return "hours" in activity ? activity.hours : activity.time;
+};
+
 function calculateHours(volunteers: Volunteers[]) {
   return volunteers.map((volunteer) => {
     let hours = 0;
